@@ -4,3 +4,7 @@ The goal of the project is to visualize various types of analysis (data driven a
 
 # Example
 ![Example 1](https://github.com/MatteoBiviano/tweets_analysis_dashboard/blob/main/examples/app_example_1.gif?raw=true)
+
+# Run
+$ pip install streamlit
+$ streamlit run dashboard.py
