@@ -17,7 +17,7 @@ def set_background(is_set, text = None):
 	if is_set:
 		if text:
 			header_html = f"""
-				<div style="background-color:royalblue;padding:10px;border-radius:10px">
+				<div style="background-color:#145796;padding:10px;border-radius:10px">
 				<h1 style="color:white;text-align:center;">{text}</h1>
 				</div>
 			"""
@@ -25,7 +25,6 @@ def set_background(is_set, text = None):
 
 		image = Image.open('images/background.png')
 		st.image(image)
-
 
 # Load Dataframe
 @st.cache
@@ -48,7 +47,7 @@ def show_r_tweet(data, st):
 
 
 		html_temp = f"""
-			<div style="background-color:royalblue;padding:30px;border-radius:30px">
+			<div style="background-color:#145796;padding:30px;border-radius:30px">
 				<h1 style="color:white;text-align:center;">{text}</h1>
 			</div>
 			"""
@@ -67,7 +66,7 @@ def show_bysentiment(data, st):
 	sentiment_count = pd.DataFrame({"Sentiment":sentiment_count.index, "Number of tweets":sentiment_count.values})
 	
 	if(chart == "Bar Plot"):
-		fig = px.bar(sentiment_count, x="Sentiment", y="Number of tweets", color="Number of tweets")
+		fig = px.bar(sentiment_count, x="Sentiment", y="Number of tweets", color_continuous_scale="bluyl", color="Number of tweets")
 		st.plotly_chart(fig)
 	else:
 		fig = px.pie(sentiment_count, values="Number of tweets", names="Sentiment")
@@ -84,7 +83,7 @@ def show_byairline(data, st):
 	sentiment_count = pd.DataFrame({"Airline company":sentiment_count.index, "Number of tweets":sentiment_count.values})
 	
 	if(airline_chart == "Bar Plot"):
-		fig = px.bar(sentiment_count, x="Airline company", y="Number of tweets", color="Number of tweets")
+		fig = px.bar(sentiment_count, x="Airline company", y="Number of tweets", color_continuous_scale="bluyl",  color="Number of tweets")
 		st.plotly_chart(fig)
 	else:
 		fig = px.pie(sentiment_count, values="Number of tweets", names="Airline company")
@@ -138,7 +137,7 @@ def negatives_byairline(data, st):
 
 # Number of negative_reason by Airline
 def airline_bysentiment(data, st):
-	st.subheader("Number of airline sentiments by Airline")
+	st.subheader("Number of sentiments by Airline")
 
 	airlines = list(set(data["airline"]))
 
@@ -202,13 +201,12 @@ def negative_bydate(data, st):
 		'Which airline do you want to view?',
 		[""] + list(set(data["airline"])), index = 0)
 
-	if len(date_time_chart) > 0:
-		if len(airline_chart) > 0:
-			sentiment_count = df[(df["tweet_created"]== pd.to_datetime(date_time_chart)) & (df["airline"]==airline_chart)]["negativereason"].value_counts()
-			sentiment_count = pd.DataFrame({"Negative reason":sentiment_count.index, "Number of tweets":sentiment_count.values})
-			fig = px.bar(sentiment_count, x="Negative reason", y="Number of tweets", color="Number of tweets")
-			fig.update_layout(xaxis_tickangle=-65)
-			st.plotly_chart(fig)
+	if len(date_time_chart) > 0 and len(airline_chart) > 0:
+		sentiment_count = df[(df["tweet_created"]== pd.to_datetime(date_time_chart)) & (df["airline"]==airline_chart)]["negativereason"].value_counts()
+		sentiment_count = pd.DataFrame({"Negative reason":sentiment_count.index, "Number of tweets":sentiment_count.values})
+		fig = px.bar(sentiment_count, x="Negative reason", y="Number of tweets", color_continuous_scale="bluyl", color="Number of tweets")
+		fig.update_layout(xaxis_tickangle=-65)
+		st.plotly_chart(fig)
 
 # Select type of data analysis
 def switch_data_analysis(analysis_code, data, st):
@@ -295,7 +293,7 @@ def word_count_distribution(data, st):
 # Tag @ count distribution
 def tag_count(data, st):
 
-	st.subheader("'@' count distribution")
+	st.subheader("Tag '@' count distribution")
 
 	tag_list = ["@url", "@mention", "@emoji", "@hashtag"]
 	sentiments = ["positive", "neutral", "negative"]
@@ -371,7 +369,7 @@ def frequency_count(data, st):
 	most_occur_words = counts.most_common(5) 
 	txt = to_showing_string(most_occur_words)
 	html_temp = f"""
-	<div style="background-color:royalblue;padding:30px;border-radius:30px">
+	<div style="background-color:#145796;padding:30px;border-radius:30px">
 		<h1 style="color:white;text-align:center;white-space: pre-line">{txt}</h1>
 	</div>
 	"""
@@ -386,7 +384,7 @@ def frequency_count(data, st):
 	most_2_bigram = counts.most_common(4) 
 	txt = to_showing_string_bigram(most_2_bigram)
 	html_temp = f"""
-	<div style="background-color:royalblue;padding:30px;border-radius:30px">
+	<div style="background-color:#145796;padding:30px;border-radius:30px">
 		<h1 style="color:white;text-align:center;white-space: pre-line">{txt}</h1>
 	</div>
 	"""
@@ -407,7 +405,7 @@ def frequency_count(data, st):
 		most_negative_common = counts.most_common(4)
 		txt = to_showing_string_bigram(most_negative_common)
 		html_temp = f"""
-		<div style="background-color:royalblue;padding:30px;border-radius:30px">
+		<div style="background-color:#145796;padding:30px;border-radius:30px">
 			<h1 style="color:white;text-align:center;white-space: pre-line">{txt}</h1>
 		</div>
 		"""
@@ -429,7 +427,7 @@ def frequency_count(data, st):
 		most_occur_bigram = counts.most_common(4)
 		txt = to_showing_string_bigram(most_occur_bigram)
 		html_temp = f"""
-		<div style="background-color:royalblue;padding:30px;border-radius:30px">
+		<div style="background-color:#145796;padding:30px;border-radius:30px">
 			<h1 style="color:white;text-align:center;white-space: pre-line">{txt}</h1>
 		</div>
 		"""
