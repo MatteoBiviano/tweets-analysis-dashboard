@@ -40,7 +40,7 @@ def main():
 		set_background(True, "Twitter US Airline Analysis")
 
 
-	st.sidebar.markdown("[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub)](https://github.com/MatteoBiviano/tweets_analysis_dashboard)")
+	st.sidebar.markdown("[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub)](https://github.com/MatteoBiviano/tweets-analysis-dashboard)")
 	
 if __name__ == '__main__':
     main()
