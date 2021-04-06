@@ -9,4 +9,4 @@ The goal of the project is to visualize various types of analysis (data driven a
 $ pip install streamlit <br />
 $ streamlit run dashboard.py
 or 
-see [here] (https://share.streamlit.io/matteobiviano/tweets-analysis-dashboard/main/dashboard.py)
+see [here](https://share.streamlit.io/matteobiviano/tweets-analysis-dashboard/main/dashboard.py)
