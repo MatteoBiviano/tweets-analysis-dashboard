@@ -10,6 +10,7 @@ import numpy as np
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import nltk
+nltk.download('punkt')
 from collections import Counter
 
 # Set background
