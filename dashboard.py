@@ -41,6 +41,8 @@ def main():
 
 
 	st.sidebar.markdown("[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub)](https://github.com/MatteoBiviano/tweets-analysis-dashboard)")
-	st.sidebar.markdown("[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/matteo-biviano/)")
+	st.sidebar.markdown("[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) LinkedIn](https://www.linkedin.com/in/matteo-biviano/)")
+	
+	
 if __name__ == '__main__':
     main()
