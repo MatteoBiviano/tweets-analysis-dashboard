@@ -29,7 +29,7 @@ def main():
 		st.sidebar.subheader("Which text analysis do you want to perform?")
 		text_analysis = st.sidebar.selectbox(
 			'', 
-			["1. Word count distribution",
+			["1. Length distribution of tweets",
 			 "2. Tag '@' count",
 			 "3. WordCloud by Sentiment",
 			 "4. WordCloud by Negative reason",
