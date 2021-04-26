@@ -263,9 +263,9 @@ def character_freq_count(data, st):
 def word_count_distribution(data, st):
 	st.subheader("Length distribution of tweets")
 
-	neg = data[data['airline_sentiment']=='negative']['not_tag_text'].str.split().map(lambda x: len(x))
-	pos = data[data['airline_sentiment']=='positive']['not_tag_text'].str.split().map(lambda x: len(x))
-	neu = data[data['airline_sentiment']=='neutral']['not_tag_text'].str.split().map(lambda x: len(x))
+	neg = data[data['airline_sentiment']=='negative']['preprocessed_text'].str.split().map(lambda x: len(x))
+	pos = data[data['airline_sentiment']=='positive']['preprocessed_text'].str.split().map(lambda x: len(x))
+	neu = data[data['airline_sentiment']=='neutral']['preprocessed_text'].str.split().map(lambda x: len(x))
 
 	fig = make_subplots(rows=1, cols=3)
 
